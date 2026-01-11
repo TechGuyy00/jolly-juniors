@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Days Daycare | A World of Color & Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600;700&display=swap');
+
+        :root {
+            --red: #FF595E;
+            --orange: #FF924C;
+            --yellow: #FFCA3A;
+            --green: #8AC926;
+            --blue: #1982C4;
+            --indigo: #6A4C93;
+            --violet: #B5179E;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .rainbow-border {
+            border-bottom: 5px solid;
+            border-image: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet)) 1;
+        }
+
+        .btn-rainbow {
+            background: linear-gradient(45deg, var(--red), var(--orange));
+            transition: transform 0.2s;
+        }
+
+        .btn-rainbow:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--blue);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hidden-page {
+            display: none;
+        }
+
+        .card-bounce:hover {
+            transform: translateY(-10px);
+            transition: transform 0.3s ease;
+        }
+
+        /* Leader Section Background Overlay */
+        .leaders-bg {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .leaders-overlay {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Gallery Transition Styles */
+        .gallery-container {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 2rem;
+        }
+
+        .gallery-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-slide.active {
+            opacity: 1;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Enrollment Box Styling */
+        .enroll-box {
+            border: 3px dashed var(--blue);
+            background: linear-gradient(to bottom right, #fff, #f0f9ff);
+        }
+
+        /* Rainbow Icon Colors */
+        .icon-red { color: var(--red); }
+        .icon-orange { color: var(--orange); }
+        .icon-yellow { color: var(--yellow); }
+        .icon-green { color: var(--green); }
+        .icon-blue { color: var(--blue); }
+        .icon-violet { color: var(--violet); }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Navigation Header -->
+    <header class="fixed w-full top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="showPage('home')">
+                <img src="jolly/logo.png" alt="Rainbow Days Logo" class="h-12 w-12 border-1 border-yellow-400">
+            </div>
+
+            <nav class="hidden md:flex space-x-8 font-bold text-gray-700">
+                <button onclick="showPage('home')" class="nav-link hover:text-red-500">Home</button>
+                <button onclick="showPage('about')" class="nav-link hover:text-green-500">About Us</button>
+                <button onclick="showPage('gallery')" class="nav-link hover:text-violet-500">Gallery</button>
+            </nav>
+
+            <button class="md:hidden text-3xl text-gray-700 focus:outline-none" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="rainbow-border"></div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-40 transform translate-x-full mobile-menu flex flex-col items-center justify-center space-y-8 text-2xl font-bold">
+        <button onclick="showPage('home')" class="mobile-link text-red-500">Home</button>
+        <button onclick="showPage('about')" class="mobile-link text-green-500">About Us</button>
+        <button onclick="showPage('gallery')" class="mobile-link text-violet-500">Gallery</button>
+        <button id="closeMenu" class="mt-10 text-gray-400"><i class="fas fa-times"></i> Close</button>
+    </div>
+
+    <main class="mt-20">
+
+        <!-- PAGE: HOME -->
+        <section id="homePage">
+            <!-- Hero Section -->
+            <div class="relative bg-blue-50 py-16 px-6 overflow-hidden">
+                <div class="container mx-auto flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 text-center md:text-left z-10">
+                        <!-- ANIMATED KIDS PNG PLACEHOLDER -->
+                        <div class="mb-4">
+                            <img src="jolly/d1.png" alt="Happy Kids Drawing" class="mx-auto md:mx-0 h-32 object-contain animate-bounce">
+                        </div>
+                        
+                        <h1 class="text-4xl md:text-6xl text-gray-800 mb-6 leading-tight">
+                            Where Every Child <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500">Shines Bright!</span>
+                        </h1>
+                        <p class="text-lg text-gray-600 mb-8 max-w-lg">We believe an effective pre-school environment is a place where children feel well care for and safe.</p>
+                        <button onclick="showPage('gallery')" class="btn-rainbow text-white px-8 py-4 rounded-full font-bold shadow-lg text-xl">
+                            GALLERY
+                        </button>
+                    </div>
+                    <div class="md:w-1/2 mt-12 md:mt-0 relative">
+                        <img src="jolly/grad4.jpg" alt="Happy Kids" class="rounded-3xl shadow-2xl border-8 border-white">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enrollment Enquiry Section (Home Page) -->
+            <div class="py-20 bg-white px-6">
+                <div class="container mx-auto max-w-3xl">
+                    <div class="enroll-box rounded-3xl overflow-hidden shadow-xl">
+                        <!-- ENROLLMENT IN PROGRESS TEXT DESIGN PNG HEADER -->
+                        <div class="bg-blue-500 p-6 flex justify-center">
+                            <img src="jolly/d2.png" alt="Enrollment in Progress" class="h-20 object-contain">
+                        </div>
+                        
+                        <div class="p-8 md:p-12">
+                            <h2 class="text-2xl text-center text-gray-800 mb-8">Talk To Us</h2>
+                            <form id="enrolForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <input type="text" placeholder="Parent Name" class="p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
+                                <input type="email" placeholder="Email Address" class="p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
+                                <input type="tel" placeholder="Phone Number" class="p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                                <select class="p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                                    <option>Select Child's Age</option>
+                                    <option>0-2 Years (R)</option>
+                                    <option>3-4 Years (RRR)</option>
+                                    <option>4-6 Years (RR)</option>
+                                </select>
+                                <textarea placeholder="How can we help you?" class="md:col-span-2 p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:outline-none h-32"></textarea>
+                                <button type="submit" class="md:col-span-2 btn-rainbow text-white font-bold py-4 rounded-xl text-xl shadow-lg">Submit Enquiry</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: ABOUT -->
+        <section id="aboutPage" class="hidden-page py-16 px-6">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-12 mb-20">
+                    <div class="md:w-1/2">
+                        <img src="jolly/blue2.jpg" class="rounded-2xl shadow-lg border-4 border-indigo-200" alt="About Us">
+                    </div>
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <!-- OUR COLORFUL STORY PNG PLACEHOLDER -->
+                        <img src="jolly/d033.png" alt="Our Colorful Story" class="mx-auto md:mx-0 mb-6">
+                        
+                        <p class="text-gray-700 text-lg mb-6">
+                            JOLLY JUNIORS ACADEMY, is a pre-school situated in Nellmapius Ext 2 at Sterkte Cresent.Jolly Juniors Academy was
+                            founded and is grounded in the values and principles of family. We follow and Apply the same morals,
+                            focusing on creating a well-oiled family system for the children, working with the parents to create the best possible
+                            learning and growing environment for all our Children.
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                            <span class="px-4 py-2 bg-red-100 text-red-600 rounded-full font-bold">Playing</span>
+                            <span class="px-4 py-2 bg-yellow-100 text-yellow-600 rounded-full font-bold">Learning</span>
+                            <span class="px-4 py-2 bg-green-100 text-green-600 rounded-full font-bold">Growing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leaders Section with Background Photo -->
+                <div class="leaders-bg rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="leaders-overlay p-10 md:p-20">
+                        <h3 class="text-center text-4xl mb-12 text-indigo-900">Meet Our Stuff</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                            <div class="text-center group">
+                                <div class="w-40 h-40 mx-auto bg-white mb-4 border-4 border-blue-400 overflow-hidden shadow-lg group-hover:scale-110 transition-transform">
+                                    <img src="jolly/t1.jpg" alt="Staff">
+                                </div>
+                               <!-- <h4 class="font-bold text-lg text-gray-800">Ms. Sarah</h4> -->
+                                <!--<p class="text-sm text-blue-600 font-semibold italic">Director</p> -->
+                            </div>
+                            <div class="text-center group">
+                                <div class="w-40 h-40 mx-auto bg-white mb-4 border-4 border-red-400 overflow-hidden shadow-lg group-hover:scale-110 transition-transform">
+                                    <img src="jolly/t3.jpg" alt="Staff">
+                                </div>
+                                <!--<h4 class="font-bold text-lg text-gray-800">Mr. James</h4> -->
+                                <!--<p class="text-sm text-red-600 font-semibold italic">Lead Teacher</p> -->
+                            </div>
+                            <div class="text-center group">
+                                <div class="w-40 h-40 mx-auto bg-white mb-4 border-4 border-yellow-400 overflow-hidden shadow-lg group-hover:scale-110 transition-transform">
+                                    <img src="jolly/t2.jpg" alt="Staff">
+                                </div>
+                               <!-- <h4 class="font-bold text-lg text-gray-800">Ms. Elena</h4> -->
+                                <!-- <p class="text-sm text-yellow-600 font-semibold italic">Art Specialist</p> -->
+                            </div>
+                            <div class="text-center group">
+                                <div class="w-40 h-40 mx-auto bg-white mb-4 border-4 border-green-400 overflow-hidden shadow-lg group-hover:scale-110 transition-transform">
+                                    <img src="jolly/t4.jpg" alt="Staff">
+                                </div>
+                                 <!--<h4 class="font-bold text-lg text-gray-800">Ms. Priya</h4> -->
+                                 <!--<p class="text-sm text-green-600 font-semibold italic">Nutritionist</p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: GALLERY -->
+        <section id="galleryPage" class="hidden-page py-16 px-6">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl mb-4 text-violet-700">A Peek into our World</h2>
+                    <div class="h-1 w-24 bg-violet-400 mx-auto rounded"></div>
+                </div>
+
+                <div class="gallery-container shadow-2xl border-8 border-white mb-12">
+                    <div class="gallery-slide active" style="border: 10px solid var(--red);">
+                        <img src="jolly/fun2.jpg" class="gallery-img" alt="Playtime">
+                    </div>
+                    <div class="gallery-slide" style="border: 10px solid var(--orange);">
+                        <img src="jolly/grad2.jpg" class="gallery-img" alt="Learning">
+                    </div>
+                    <div class="gallery-slide" style="border: 10px solid var(--yellow);">
+                        <img src="jolly/fun.jpg" class="gallery-img" alt="Outdoor Fun">
+                    </div>
+                    <div class="gallery-slide" style="border: 10px solid var(--green);">
+                        <img src="jolly/cul2.jpg" class="gallery-img" alt="Creative Arts">
+                    </div>
+                    <div class="gallery-slide" style="border: 10px solid var(--blue);">
+                        <img src="jolly/brth5.jpg" class="gallery-img" alt="Snack Time">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/brth4.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/cul.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/brth2.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/cul02.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/cul04.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/fun7.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/grad2.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/run4.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/brth01.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/blue3.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/brth.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/grad1.jpg" class="w-full h-full object-cover"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-10 mt-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center mb-6">
+                <img src="jolly/logo.png" alt="Rainbow Days Logo" class="h-24 w-auto">
+            </div>
+            <p class="text-gray-500 mb-4">&copy; 2025 JOLLY JUNIOR'S ACADEMY. All rights reserved.</p>
+            <p class="text-sm text-gray-400">175 Sterkte Cres, Nellmapius, Pretoria | 071 714 1869</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            const pages = ['homePage', 'aboutPage', 'galleryPage'];
+            pages.forEach(id => {
+                document.getElementById(id).classList.add('hidden-page');
+            });
+            document.getElementById(pageId + 'Page').classList.remove('hidden-page');
+            document.getElementById('mobileMenu').classList.add('translate-x-full');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if(pageId === 'gallery') startGallery();
+        }
+
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+        closeMenu.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+        let currentSlide = 0;
+        let galleryInterval;
+
+        function startGallery() {
+            if(galleryInterval) clearInterval(galleryInterval);
+            const slides = document.querySelectorAll('.gallery-slide');
+            galleryInterval = setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
