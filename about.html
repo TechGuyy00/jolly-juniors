@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jolly Juniors Academy | About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600;700&display=swap');
+
+        :root {
+            --red: #FF595E;
+            --orange: #FF924C;
+            --yellow: #FFCA3A;
+            --green: #8AC926;
+            --blue: #1982C4;
+            --indigo: #6A4C93;
+            --violet: #B5179E;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .rainbow-border {
+            border-bottom: 5px solid;
+            border-image: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet)) 1;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--blue);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .leaders-bg {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .leaders-overlay {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Navigation Header -->
+    <header class="fixed w-full top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 cursor-pointer">
+                <img src="jolly/logo.png" alt="Jolly Juniors Academy Logo" class="h-12 w-12 border-2 border-yellow-400">
+            </a>
+
+            <nav class="hidden md:flex space-x-8 font-bold text-gray-700">
+                <a href="index.html" class="nav-link hover:text-red-500">Home</a>
+                <a href="about.html" class="nav-link hover:text-green-500">About Us</a>
+                <a href="extra-curriculum.html" class="nav-link hover:text-orange-500">Activities</a>
+                <a href="gallery.html" class="nav-link hover:text-violet-500">Gallery</a>
+                <a href="blog.html" class="nav-link hover:text-blue-500">Blog</a>
+            </nav>
+
+            <button class="md:hidden text-3xl text-gray-700 focus:outline-none" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="rainbow-border"></div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-40 transform translate-x-full mobile-menu flex flex-col items-center justify-center space-y-8 text-2xl font-bold">
+        <a href="index.html" class="mobile-link text-red-500">Home</a>
+        <a href="about.html" class="mobile-link text-green-500">About Us</a>
+        <a href="extra-curriculum.html" class="mobile-link text-orange-500">Activities</a>
+        <a href="gallery.html" class="mobile-link text-violet-500">Gallery</a>
+        <a href="blog.html" class="mobile-link text-blue-500">Blog</a>
+        <button id="closeMenu" class="mt-10 text-gray-400"><i class="fas fa-times"></i> Close</button>
+    </div>
+
+    <main class="mt-20">
+        <section class="py-16 px-6">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-12 mb-20">
+                        
+                    <div class="md:w-1/2">
+                        <h1 class="text-4xl md:text-5xl text-blue-600 mb-4">Principal</h1>
+                        <img src="jolly/pal1.png" class="rounded-2xl shadow-lg border-4 border-indigo-200" alt="About Us">
+                    </div>
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <img src="jolly/d033.png" alt="Our Colorful Story" class="mx-auto md:mx-0 mb-6">
+                        <p class="text-gray-700 text-lg mb-6">
+                            JOLLY JUNIORS ACADEMY is a pre-school situated in Nellmapius Ext 2 at Sterkte Crescent. Jolly Juniors Academy was
+                            founded and is grounded in the values and principles of family. We follow and apply the same morals,
+                            focusing on creating a well-oiled family system for the children, working with the parents to create the best possible
+                            learning and growing environment for all our children.
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                            <span class="px-4 py-2 bg-red-100 text-red-600 rounded-full font-bold">Playing</span>
+                            <span class="px-4 py-2 bg-yellow-100 text-yellow-600 rounded-full font-bold">Learning</span>
+                            <span class="px-4 py-2 bg-green-100 text-green-600 rounded-full font-bold">Growing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leaders Section with Background Photo -->
+                <div class="leaders-bg rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="leaders-overlay p-10 md:p-20">
+                        <h3 class="text-center text-4xl mb-12 text-indigo-900">Meet Our Staff</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                            <div class="text-center group">
+                                <div class="w-40 h-40 mx-auto bg-white mb-4 border-4 border-blue-400 overflow-hidden shadow-lg group-hover:scale-110 transition-transform">
+                                    <img src="jolly/t1.jpg" alt="Staff Member" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="text-center group">
+                                <div class="w-40 h-40 mx-auto bg-white mb-4 border-4 border-red-400 overflow-hidden shadow-lg group-hover:scale-110 transition-transform">
+                                    <img src="jolly/t3.jpg" alt="Staff Member" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="text-center group">
+                                <div class="w-40 h-40 mx-auto bg-white mb-4 border-4 border-yellow-400 overflow-hidden shadow-lg group-hover:scale-110 transition-transform">
+                                    <img src="jolly/t2.jpg" alt="Staff Member" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="text-center group">
+                                <div class="w-40 h-40 mx-auto bg-white mb-4 border-4 border-green-400 overflow-hidden shadow-lg group-hover:scale-110 transition-transform">
+                                    <img src="jolly/t4.jpg" alt="Staff Member" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-10 mt-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center mb-6">
+                <img src="jolly/logo.png" alt="Jolly Juniors Academy Logo" class="h-24 w-auto">
+            </div>
+            <div class="flex justify-center space-x-6 mb-4">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/27670966647" target="_blank" class="text-black hover:text-gray-600 text-2xl transition-colors">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/share/1GWZhuzTgM/" target="_blank" class="text-black hover:text-gray-600 text-2xl transition-colors">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <!-- TikTok -->
+                <a href="https://vm.tiktok.com/ZS9kJ4ugjG25H-5BtDj/" target="_blank" class="text-black hover:text-gray-600 text-2xl transition-colors">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <!-- Gmail -->
+                <a href="mailto:jollyjuniorsacademy@gmail.com" target="_blank" class="text-black hover:text-gray-600 text-2xl transition-colors">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p class="text-gray-500 mb-4">&copy; 2026 JOLLY JUNIORS ACADEMY. All rights reserved.</p>
+            <p class="text-sm text-gray-400">175 Sterkte Cres, Nellmapius, Pretoria | 067 096 6647</p>
+            <p class="text-sm text-gray-400">NEW LOCATION COMING SOON | 067 096 6647</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+        closeMenu.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+    </script>
+</body>
+</html>

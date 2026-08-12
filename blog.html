@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Read our latest articles on early childhood development, parenting tips, and activities at Jolly Juniors Academy.">
+    <title>Jolly Juniors Academy | Blog & News</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600;700&display=swap');
+
+        :root {
+            --red: #FF595E;
+            --orange: #FF924C;
+            --yellow: #FFCA3A;
+            --green: #8AC926;
+            --blue: #1982C4;
+            --indigo: #6A4C93;
+            --violet: #B5179E;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .rainbow-border {
+            border-bottom: 5px solid;
+            border-image: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet)) 1;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--blue);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .blog-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .blog-img-container {
+            overflow: hidden;
+        }
+
+        .blog-img-container img {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navigation Header -->
+    <header class="fixed w-full top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 cursor-pointer">
+                <img src="jolly/logo.png" alt="Jolly Juniors Academy Logo" class="h-12 w-12 border-2 border-yellow-400">
+            </a>
+
+            <nav class="hidden md:flex space-x-6 lg:space-x-8 font-bold text-gray-700">
+                <a href="index.html" class="nav-link hover:text-red-500">Home</a>
+                <a href="about.html" class="nav-link hover:text-green-500">About Us</a>
+                <a href="extra-curriculum.html" class="nav-link hover:text-orange-500">Activities</a>
+                <a href="gallery.html" class="nav-link hover:text-violet-500">Gallery</a>
+                <a href="blog.html" class="nav-link hover:text-blue-500">Blog</a>
+            </nav>
+
+            <button class="md:hidden text-3xl text-gray-700 focus:outline-none" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="rainbow-border"></div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-40 transform translate-x-full mobile-menu flex flex-col items-center justify-center space-y-6 text-2xl font-bold">
+        <a href="index.html" class="mobile-link text-red-500">Home</a>
+        <a href="about.html" class="mobile-link text-green-500">About Us</a>
+        <a href="extra-curriculum.html" class="mobile-link text-orange-500">Activities</a>
+        <a href="gallery.html" class="mobile-link text-violet-500">Gallery</a>
+        <a href="blog.html" class="mobile-link text-blue-500">Blog</a>
+        <button id="closeMenu" class="mt-10 text-gray-400"><i class="fas fa-times"></i> Close</button>
+    </div>
+
+    <main class="mt-20">
+        <!-- Hero Section -->
+        <div class="bg-white py-16 px-6 text-center shadow-sm">
+            <h1 class="text-4xl md:text-5xl text-violet-600 mb-4">Our Blog & Tips</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Insights, news, and parenting tips right from our educators at Jolly Juniors Academy.</p>
+        </div>
+
+        <section class="py-16 px-6">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Blog Post 1 -->
+                <article class="bg-white rounded-3xl shadow-lg border border-gray-100 flex flex-col blog-card">
+                    <div class="blog-img-container h-56 rounded-t-3xl">
+                        <img src="jolly/fun8.jpg" alt="Child Learning" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs bg-red-100 text-red-600 font-bold px-3 py-1 rounded-full">Development</span>
+                            <span class="text-xs text-gray-400 font-semibold">Aug 1, 2026</span>
+                        </div>
+                        <h3 class="text-xl text-gray-800 mb-3 article-title">Why Early Socialization Matters for Toddlers</h3>
+                        <p class="text-gray-600 mb-4 flex-grow article-excerpt">Socializing early can help toddlers develop empathy, language skills, and emotional regulation long before they hit primary school...</p>
+                        
+                        <!-- Hidden SEO Content for the Modal -->
+                        <div class="hidden article-full">
+                            <p class="mb-4">Socializing early can help toddlers develop empathy, language skills, and emotional regulation long before they hit primary school. At Jolly Juniors Academy, we place a high emphasis on interactive play.</p>
+                            <p class="mb-4">When children interact with their peers, they are forced to negotiate, share, and communicate their needs effectively. This peer-to-peer learning environment accelerates their cognitive milestones much faster than independent play alone.</p>
+                            <h4 class="text-xl text-blue-500 mb-2 mt-4 font-bold">Key Benefits:</h4>
+                            <ul class="list-disc pl-5 mb-4 text-gray-700 space-y-2">
+                                <li><strong>Language Development:</strong> Listening to peers encourages faster vocabulary adoption.</li>
+                                <li><strong>Conflict Resolution:</strong> Learning how to share toys builds foundational negotiation skills.</li>
+                                <li><strong>Confidence:</strong> Being comfortable in groups prepares them for future schooling.</li>
+                            </ul>
+                            <p>Encourage your children to participate in group activities, whether it's through our extra-curriculum programs or weekend playdates!</p>
+                        </div>
+
+                        <button class="text-left font-bold text-violet-600 hover:text-violet-800 transition flex items-center read-more-btn mt-auto">
+                            Read full Article <i class="fas fa-arrow-right ml-2 text-sm pt-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="bg-white rounded-3xl shadow-lg border border-gray-100 flex flex-col blog-card">
+                    <div class="blog-img-container h-56 rounded-t-3xl">
+                        <img src="jolly/clas2.jpg" alt="Creative Arts" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs bg-green-100 text-green-600 font-bold px-3 py-1 rounded-full">Creativity</span>
+                            <span class="text-xs text-gray-400 font-semibold">Aug 5, 2026</span>
+                        </div>
+                        <h3 class="text-xl text-gray-800 mb-3 article-title">Fostering Creativity Through Fun Learning and Messy Play</h3>
+                        <p class="text-gray-600 mb-4 flex-grow article-excerpt">It might mean more laundry, but messy play is actually crucial for cognitive development and sensory processing in young minds...</p>
+                        
+                        <!-- Hidden SEO Content for the Modal -->
+                        <div class="hidden article-full">
+                            <p class="mb-4">It might mean more laundry, but messy play is actually crucial for cognitive development and sensory processing in young minds. Engaging tactile senses helps wire the brain for complex problem-solving.</p>
+                            <p class="mb-4">Whether it's finger painting, playing in the mud, or squishing playdough, these activities allow children to explore textures and cause-and-effect without the pressure of a "right" or "wrong" outcome.</p>
+                            <h4 class="text-xl text-green-500 mb-2 mt-4 font-bold">Why We Love Messy Play:</h4>
+                            <p class="mb-4 text-gray-700">At Jolly Juniors Academy, we dedicate time to guided messy play. It helps children understand boundaries while feeling completely free to express their imagination. Parents can replicate this at home by setting up a dedicated "mess zone" using washable paints or simple water bins.</p>
+                        </div>
+
+                        <button class="text-left font-bold text-violet-600 hover:text-violet-800 transition flex items-center read-more-btn mt-auto">
+                            Read full Article <i class="fas fa-arrow-right ml-2 text-sm pt-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="bg-white rounded-3xl shadow-lg border border-gray-100 flex flex-col blog-card">
+                    <div class="blog-img-container h-56 rounded-t-3xl">
+                        <img src="jolly/play1.jpg" alt="Outdoor Fun" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs bg-blue-100 text-blue-600 font-bold px-3 py-1 rounded-full">Health</span>
+                            <span class="text-xs text-gray-400 font-semibold">Aug 7, 2026</span>
+                        </div>
+                        <h3 class="text-xl text-gray-800 mb-3 article-title">The Importance of Physical Activities</h3>
+                        <p class="text-gray-600 mb-4 flex-grow article-excerpt">Fresh air and running around aren't just for burning off energy—they are vital components for building strong bones and immunity...</p>
+                        
+                        <!-- Hidden SEO Content for the Modal -->
+                        <div class="hidden article-full">
+                            <p class="mb-4">Fresh air and running around aren't just for burning off energy—they are vital components for building strong bones and immunity in growing children. Sunlight provides necessary Vitamin D, while open spaces allow for gross motor skill development.</p>
+                            <p class="mb-4">Running, jumping, and climbing on playground equipment help children map their physical capabilities and boundaries. It also acts as a natural stress reliever, improving their mood and sleep quality at night.</p>
+                            <p class="mb-4 text-gray-700">We make sure all our children at Jolly Juniors get ample outdoor time. We recommend parents encourage at least 60 minutes of active, unstructured outdoor play every day!</p>
+                        </div>
+
+                        <button class="text-left font-bold text-violet-600 hover:text-violet-800 transition flex items-center read-more-btn mt-auto">
+                            Read full Article <i class="fas fa-arrow-right ml-2 text-sm pt-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Full Article -->
+    <div id="articleModal" class="fixed inset-0 bg-gray-900 bg-opacity-60 z-[100] hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
+        <div class="bg-white rounded-3xl w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl relative">
+            
+            <!-- Close Button -->
+            <button id="closeModalBtn" class="absolute top-4 right-4 bg-white text-gray-600 hover:text-red-500 w-10 h-10 rounded-full shadow-md flex items-center justify-center transition-colors z-10">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+
+            <!-- Modal Content Scrollable Area -->
+            <div class="overflow-y-auto w-full">
+                <img id="modalImg" src="" alt="" class="w-full h-64 md:h-80 object-cover">
+                <div class="p-8 md:p-12">
+                    <h2 id="modalTitle" class="text-3xl text-gray-800 mb-6"></h2>
+                    <div id="modalContent" class="text-gray-700 text-lg leading-relaxed">
+                        <!-- Content gets injected here by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-10 mt-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center mb-6">
+                <img src="jolly/logo.png" alt="Jolly Juniors Academy Logo" class="h-24 w-auto">
+            </div>
+            <div class="flex justify-center space-x-6 mb-4">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/27670966647" target="_blank" class="text-black hover:text-gray-600 text-2xl transition-colors">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/share/1GWZhuzTgM/" target="_blank" class="text-black hover:text-gray-600 text-2xl transition-colors">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <!-- TikTok -->
+                <a href="https://vm.tiktok.com/ZS9kJ4ugjG25H-5BtDj/" target="_blank" class="text-black hover:text-gray-600 text-2xl transition-colors">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <!-- Gmail -->
+                <a href="mailto:jollyjuniorsacademy@gmail.com" target="_blank" class="text-black hover:text-gray-600 text-2xl transition-colors">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p class="text-gray-500 mb-4">&copy; 2026 JOLLY JUNIORS ACADEMY. All rights reserved.</p>
+            <p class="text-sm text-gray-400">175 Sterkte Cres, Nellmapius, Pretoria | 067 096 6647</p>
+            <p class="text-sm text-gray-400">NEW LOCATION COMING SOON | 067 096 6647</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+        closeMenu.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+        // Modal Logic for Blog Articles
+        const articleModal = document.getElementById('articleModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+
+        // Open Modal
+        document.querySelectorAll('.read-more-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const card = e.target.closest('article');
+                
+                // Populate Modal Data
+                modalImg.src = card.querySelector('img').src;
+                modalTitle.textContent = card.querySelector('.article-title').textContent;
+                modalContent.innerHTML = card.querySelector('.article-full').innerHTML;
+                
+                // Show Modal
+                articleModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+        });
+
+        // Close Modal Function
+        const closeModal = () => {
+            articleModal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore background scrolling
+        };
+
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        // Close on background click
+        articleModal.addEventListener('click', (e) => {
+            if (e.target === articleModal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

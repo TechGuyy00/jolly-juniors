@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Days Daycare | Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600;700&display=swap');
+
+        :root {
+            --red: #FF595E;
+            --orange: #FF924C;
+            --yellow: #FFCA3A;
+            --green: #8AC926;
+            --blue: #1982C4;
+            --indigo: #6A4C93;
+            --violet: #B5179E;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .rainbow-border {
+            border-bottom: 5px solid;
+            border-image: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet)) 1;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--blue);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Gallery Transition Styles */
+        .gallery-container {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 2rem;
+        }
+
+        .gallery-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-slide.active {
+            opacity: 1;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Navigation Header -->
+    <header class="fixed w-full top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 cursor-pointer">
+                <img src="jolly/logo.png" alt="Rainbow Days Logo" class="h-12 w-12 border-1 border-yellow-400">
+            </a>
+
+            <nav class="hidden md:flex space-x-8 font-bold text-gray-700">
+                <a href="index.html" class="nav-link hover:text-red-500">Home</a>
+                <a href="about.html" class="nav-link hover:text-green-500">About Us</a>
+                <a href="extra-curriculum.html" class="nav-link hover:text-orange-500">Activities</a>
+                <a href="gallery.html" class="nav-link hover:text-violet-500">Gallery</a>
+                <a href="blog.html" class="nav-link hover:text-blue-500">Blog</a>
+            </nav>
+
+            <button class="md:hidden text-3xl text-gray-700 focus:outline-none" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="rainbow-border"></div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-40 transform translate-x-full mobile-menu flex flex-col items-center justify-center space-y-8 text-2xl font-bold">
+        <a href="index.html" class="mobile-link text-red-500">Home</a>
+        <a href="about.html" class="mobile-link text-green-500">About Us</a>
+        <a href="extra-curriculum.html" class="nav-link hover:text-orange-500">Activities</a>
+        <a href="gallery.html" class="mobile-link text-violet-500">Gallery</a>
+        <a href="blog.html" class="nav-link hover:text-blue-500">Blog</a>
+        <button id="closeMenu" class="mt-10 text-gray-400"><i class="fas fa-times"></i> Close</button>
+    </div>
+
+    <main class="mt-20">
+        <section class="py-16 px-6">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl mb-4 text-violet-700">A Peek into our World</h2>
+                    <div class="h-1 w-24 bg-violet-400 mx-auto rounded"></div>
+                </div>
+
+                <div class="gallery-container shadow-2xl border-8 border-white mb-12">
+                    <div class="gallery-slide active" style="border: 10px solid var(--red);">
+                        <img src="jolly/fun2.jpg" class="gallery-img" alt="Playtime">
+                    </div>
+                    <div class="gallery-slide" style="border: 10px solid var(--orange);">
+                        <img src="jolly/grad2.jpg" class="gallery-img" alt="Learning">
+                    </div>
+                    <div class="gallery-slide" style="border: 10px solid var(--yellow);">
+                        <img src="jolly/fun.jpg" class="gallery-img" alt="Outdoor Fun">
+                    </div>
+                    <div class="gallery-slide" style="border: 10px solid var(--green);">
+                        <img src="jolly/cul2.jpg" class="gallery-img" alt="Creative Arts">
+                    </div>
+                    <div class="gallery-slide" style="border: 10px solid var(--blue);">
+                        <img src="jolly/brth5.jpg" class="gallery-img" alt="Snack Time">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/brth4.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/cul.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/brth2.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/cul02.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/cul04.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/fun7.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/grad2.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/run4.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/brth01.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/blue3.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/brth.jpg" class="w-full h-full object-cover"></div>
+                    <div class="h-40 rounded-xl overflow-hidden shadow-md"><img src="jolly/grad1.jpg" class="w-full h-full object-cover"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-10 mt-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center mb-6">
+                <img src="jolly/logo.png" alt="Rainbow Days Logo" class="h-24 w-auto">
+            </div>
+            <div class="flex justify-center space-x-6 mb-4">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/27670966647" target="_blank" class="text-black hover:text-gray-600 text-2xl transition-colors">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/share/1GWZhuzTgM/" target="_blank" class="text-black hover:text-gray-600 text-2xl transition-colors">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <!-- TikTok -->
+                <a href="https://vm.tiktok.com/ZS9kJ4ugjG25H-5BtDj/" target="_blank" class="text-black hover:text-gray-600 text-2xl transition-colors">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <!-- Gmail -->
+                <a href="mailto:jollyjuniorsacademy@gmail.com" target="_blank" class="text-black hover:text-gray-600 text-2xl transition-colors">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p class="text-gray-500 mb-4">&copy; 2025 JOLLY JUNIOR'S ACADEMY. All rights reserved.</p>
+            <p class="text-sm text-gray-400">175 Sterkte Cres, Nellmapius, Pretoria | 067 096 6647</p>
+            <p class="text-sm text-gray-400">NEW LOCATION COMING SOON | 067 096 6647</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+        closeMenu.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+        // Start gallery slideshow automatically on this page
+        let currentSlide = 0;
+        let galleryInterval;
+
+        function startGallery() {
+            const slides = document.querySelectorAll('.gallery-slide');
+            if (slides.length > 0) {
+                galleryInterval = setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 3000);
+            }
+        }
+        
+        // Execute slideshow on page load
+        window.onload = startGallery;
+    </script>
+</body>
+</html>
